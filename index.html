@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ground Review — RFP 26-039AS | The Hub. Programming & Operating Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --parchment: #EDE6D6;
+    --warm-dark: #1C1A16;
+    --olive: #5C6142;
+    --rust: #A85C3A;
+    --sand: #C4A882;
+    --light-olive: #8A8F6A;
+    --border: rgba(92,97,66,0.25);
+    --border-light: rgba(92,97,66,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--warm-dark);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--warm-dark);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 30%, rgba(92,97,66,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(168,92,58,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+
+  .cover-left {
+    padding: 60px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-right {
+    padding: 60px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .gr-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sand);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .gr-wordmark::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--sand);
+    display: block;
+  }
+
+  .cover-headline {
+    margin-top: auto;
+    padding-bottom: 80px;
+  }
+
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    margin-bottom: 28px;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--sand);
+  }
+
+  .cover-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 300;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.2;
+    margin-top: 12px;
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 40px;
+  }
+
+  .meta-item {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .meta-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); padding-right: 32px; }
+  .meta-item:nth-child(even) { padding-left: 32px; }
+
+  .meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    margin-bottom: 6px;
+  }
+
+  .meta-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+
+  .cover-right-content {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 40px;
+  }
+
+  .cover-statement {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+
+  .cover-toc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    margin-bottom: 20px;
+  }
+
+  .cover-toc {
+    list-style: none;
+  }
+
+  .cover-toc li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 12px;
+    color: rgba(245,240,232,0.55);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  .cover-toc li span.num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--rust);
+    min-width: 20px;
+  }
+
+  .cover-toc li a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cover-toc li a:hover { color: var(--sand); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--warm-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sand);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--sand); }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 72px;
+  }
+
+  .section-index {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    padding-top: 8px;
+  }
+
+  .section-points {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--light-olive);
+    margin-top: 4px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--warm-dark);
+  }
+
+  .section-title em { font-style: italic; color: var(--olive); }
+
+  .section-intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(28,26,22,0.7);
+    max-width: 620px;
+    margin-top: 16px;
+  }
+
+  /* ── FIRM OVERVIEW ── */
+  .firm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    margin-bottom: 64px;
+  }
+
+  .firm-cell {
+    background: var(--cream);
+    padding: 40px 48px;
+  }
+
+  .firm-cell-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 12px;
+  }
+
+  .firm-cell-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--warm-dark);
+  }
+
+  .firm-cell-body {
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(28,26,22,0.7);
+    margin-top: 8px;
+  }
+
+  .firm-cell.wide {
+    grid-column: 1 / -1;
+  }
+
+  /* ── HIGHLIGHT STRIP ── */
+  .highlight-strip {
+    background: var(--olive);
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-bottom: 64px;
+  }
+
+  .highlight-item {
+    padding: 0 40px 0 0;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .highlight-item:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
+  .highlight-item:first-child { padding-left: 0; }
+
+  .highlight-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .highlight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+  }
+
+  /* ── RELEVANT EXPERIENCE ── */
+  .exp-header {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    padding: 0 0 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .project-item {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .project-left {
+    padding: 36px 40px 36px 0;
+    border-right: 1px solid var(--border-light);
+  }
+
+  .project-right {
+    padding: 36px 0 36px 40px;
+  }
+
+  .project-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--warm-dark);
+    margin-bottom: 4px;
+  }
+
+  .project-location {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--olive);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .project-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(28,26,22,0.72);
+  }
+
+  .project-relevance {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--parchment);
+    border-left: 2px solid var(--olive);
+    font-size: 13px;
+    color: var(--olive);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── LAB HOLDING BANNER ── */
+  .lab-banner {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    padding: 48px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .lab-banner-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 12px;
+  }
+
+  .lab-banner-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--warm-dark);
+  }
+
+  .lab-banner-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(28,26,22,0.7);
+  }
+
+  .lab-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .lab-project-chip {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+  }
+
+  .lab-project-chip strong {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--warm-dark);
+    margin-bottom: 4px;
+  }
+
+  .lab-project-chip span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--light-olive);
+  }
+
+  /* ── TEAM ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .team-card {
+    background: var(--cream);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .team-card::before {
+    content: attr(data-role);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    background: var(--parchment);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .team-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--parchment);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--olive);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--warm-dark);
+    margin-bottom: 4px;
+  }
+
+  .team-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 20px;
+  }
+
+  .team-bio {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(28,26,22,0.68);
+    margin-bottom: 20px;
+  }
+
+  .team-credentials {
+    list-style: none;
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+  }
+
+  .team-credentials li {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    color: var(--olive);
+    padding: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .team-credentials li::before {
+    content: '→';
+    color: var(--rust);
+    flex-shrink: 0;
+  }
+
+  .participation-bar {
+    margin-top: 20px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+  }
+
+  .participation-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    margin-bottom: 8px;
+  }
+
+  .participation-fill {
+    height: 3px;
+    background: var(--border-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .participation-fill-inner {
+    height: 100%;
+    background: var(--olive);
+    border-radius: 2px;
+  }
+
+  /* ── ORG CHART ── */
+  .org-chart {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    padding: 56px 64px;
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .org-chart-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    margin-bottom: 40px;
+  }
+
+  .org-top {
+    display: inline-block;
+    background: var(--warm-dark);
+    color: var(--cream);
+    padding: 20px 40px;
+    margin-bottom: 0;
+  }
+
+  .org-top-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .org-top-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-top: 4px;
+  }
+
+  .org-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .org-connector-line {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+  }
+
+  .org-connector-h {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+  }
+
+  .org-branch-line {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+  }
+
+  .org-node {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .org-node-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--warm-dark);
+  }
+
+  .org-node-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-top: 4px;
+  }
+
+  .org-city-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+    margin-top: 6px;
+  }
+
+  .org-h-rule {
+    height: 1px;
+    background: var(--border);
+    width: calc(100% - 160px);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ── WORK PLAN ── */
+  .workplan-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .workplan-sidebar {
+    background: var(--warm-dark);
+    padding: 48px 36px;
+    border-right: none;
+  }
+
+  .workplan-sidebar-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    margin-bottom: 32px;
+  }
+
+  .phase-list {
+    list-style: none;
+  }
+
+  .phase-item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+  }
+
+  .phase-item:last-child { border-bottom: none; }
+
+  .phase-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--rust);
+    margin-bottom: 4px;
+  }
+
+  .phase-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+
+  .phase-duration {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.35);
+    margin-top: 4px;
+  }
+
+  .workplan-content {
+    padding: 48px 56px;
+  }
+
+  .workplan-phase {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .workplan-phase:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .phase-badge {
+    background: var(--rust);
+    color: var(--cream);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .phase-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--warm-dark);
+    line-height: 1.2;
+  }
+
+  .phase-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--light-olive);
+    margin-top: 4px;
+  }
+
+  .deliverables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .deliverable {
+    padding: 14px 18px;
+    background: var(--parchment);
+    border-left: 2px solid var(--olive);
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(28,26,22,0.72);
+  }
+
+  .deliverable strong {
+    display: block;
+    font-weight: 500;
+    color: var(--warm-dark);
+    font-size: 12px;
+    margin-bottom: 2px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── SCHEDULE ── */
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+  }
+
+  .schedule-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light-olive);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--parchment);
+    font-weight: 400;
+  }
+
+  .schedule-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 13.5px;
+    vertical-align: top;
+  }
+
+  .schedule-table tr:last-child td { border-bottom: none; }
+
+  .schedule-table td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--rust);
+    white-space: nowrap;
+  }
+
+  .schedule-table td:nth-child(2) {
+    font-weight: 400;
+    color: var(--warm-dark);
+  }
+
+  .schedule-table td:nth-child(3) {
+    color: rgba(28,26,22,0.6);
+    font-size: 13px;
+  }
+
+  /* ── VALUE / COMPENSATION ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    margin-bottom: 48px;
+  }
+
+  .comp-card {
+    background: var(--cream);
+    padding: 40px 36px;
+  }
+
+  .comp-card.featured {
+    background: var(--olive);
+  }
+
+  .comp-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 12px;
+  }
+
+  .comp-card.featured .comp-card-label {
+    color: rgba(245,240,232,0.6);
+  }
+
+  .comp-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--warm-dark);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .comp-card.featured .comp-card-title {
+    color: var(--cream);
+  }
+
+  .comp-card-body {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(28,26,22,0.65);
+  }
+
+  .comp-card.featured .comp-card-body {
+    color: rgba(245,240,232,0.7);
+  }
+
+  .comp-card-badge {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--rust);
+    padding: 5px 12px;
+  }
+
+  /* ── PERFORMANCE METRICS ── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  .metric-cell {
+    padding: 32px 28px;
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .metric-cell:nth-child(4n) { border-right: none; }
+  .metric-cell:nth-last-child(-n+4) { border-bottom: none; }
+
+  .metric-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .metric-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--warm-dark);
+    margin-bottom: 6px;
+  }
+
+  .metric-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(28,26,22,0.6);
+  }
+
+  /* ── COMMITMENT SECTION ── */
+  .commitment {
+    background: var(--warm-dark);
+    padding: 80px 0;
+    border-bottom: none;
+  }
+
+  .commitment .section-title { color: var(--cream); }
+  .commitment .section-title em { color: var(--sand); }
+  .commitment .section-intro { color: rgba(245,240,232,0.55); }
+
+  .commitment-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .pillar {
+    padding: 40px 40px 40px 0;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .pillar:last-child { border-right: none; padding-right: 0; padding-left: 40px; }
+  .pillar:nth-child(2) { padding-left: 40px; }
+
+  .pillar-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  .pillar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .pillar-body {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--warm-dark);
+    padding: 48px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .footer-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--light-olive);
+  }
+
+  .footer-col-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+
+  .footer-col-content {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.5);
+  }
+
+  .footer-col-content a {
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+  }
+
+  /* ── UTIL ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 48px 0;
+  }
+
+  .text-rust { color: var(--rust); }
+  .text-olive { color: var(--olive); }
+  .mono { font-family: 'DM Mono', monospace; }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media print {
+    nav { display: none; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ COVER ═══════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-grid">
+    <div class="cover-left">
+      <div class="gr-wordmark">Ground Review</div>
+
+      <div class="cover-headline">
+        <div class="cover-eyebrow">RFP No. 26-039AS &nbsp;/&nbsp; City of Corona Economic Development</div>
+        <div class="cover-title">The <em>Hub.</em></div>
+        <div class="cover-sub">Programming &amp; Operating Services</div>
+      </div>
+
+      <div class="cover-meta">
+        <div class="meta-item">
+          <div class="meta-label">Submitted By</div>
+          <div class="meta-value">Ground Review, LLC<br>Irvine, CA 92614</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Submitted To</div>
+          <div class="meta-value">City of Corona<br>Economic Development Dept.</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Proposal Date</div>
+          <div class="meta-value">April 14, 2026</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Contact</div>
+          <div class="meta-value">hello@groundreview.com<br>17322 Murphy Ave, Irvine CA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-right">
+      <div class="cover-right-content">
+        <div class="cover-statement">
+          "The art of shaping the space in-between — where community, culture, and commerce converge."
+        </div>
+
+        <div class="cover-toc-label">Table of Contents</div>
+        <ul class="cover-toc">
+          <li><span class="num">01</span><a href="#firm">Qualification of Firm &nbsp;— 30 pts</a></li>
+          <li><span class="num">02</span><a href="#team">Qualifications of Personnel &nbsp;— 25 pts</a></li>
+          <li><span class="num">03</span><a href="#workplan">Work Plan &amp; Approach &nbsp;— 25 pts</a></li>
+          <li><span class="num">04</span><a href="#value">Value &amp; Compensation &nbsp;— 20 pts</a></li>
+          <li><span class="num">05</span><a href="#commitment">Our Commitment to The Hub.</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+<nav>
+  <div class="nav-brand">Ground Review &nbsp;/&nbsp; RFP 26-039AS</div>
+  <ul class="nav-links">
+    <li><a href="#firm">Firm</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#workplan">Work Plan</a></li>
+    <li><a href="#value">Value</a></li>
+    <li><a href="#commitment">Commitment</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════ 01 FIRM ═══════════════════════════════════ -->
+<section id="firm">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-index">Section 01</div>
+        <div class="section-points">30 Points</div>
+      </div>
+      <div>
+        <h2 class="section-title">Qualification<br>of <em>Firm</em></h2>
+        <p class="section-intro">Ground Review is a California-licensed real estate brokerage, design, and development practice with a singular focus: creating mixed-use environments where community, culture, and commerce thrive together.</p>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="highlight-strip">
+      <div class="highlight-item">
+        <div class="highlight-num">20+</div>
+        <div class="highlight-label">Years Combined<br>Real Estate Leadership</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-num">3</div>
+        <div class="highlight-label">Iconic SoCal<br>Mixed-Use Activations</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-num">10+</div>
+        <div class="highlight-label">Tenant Placements<br>Across Orange County</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-num">1</div>
+        <div class="highlight-label">Michelin Star Tenant<br>Secured &amp; Placed</div>
+      </div>
+    </div>
+
+    <!-- Firm Overview Grid -->
+    <div class="firm-grid">
+      <div class="firm-cell">
+        <div class="firm-cell-label">Firm Name</div>
+        <div class="firm-cell-value">Ground Review, LLC</div>
+        <div class="firm-cell-body">California-licensed commercial real estate brokerage, design, and community development practice.</div>
+      </div>
+      <div class="firm-cell">
+        <div class="firm-cell-label">Principal Office</div>
+        <div class="firm-cell-value">Irvine, California</div>
+        <div class="firm-cell-body">17322 Murphy Avenue, Irvine, CA 92614<br>hello@groundreview.com</div>
+      </div>
+      <div class="firm-cell">
+        <div class="firm-cell-label">Organization Type</div>
+        <div class="firm-cell-value">Limited Liability Company</div>
+        <div class="firm-cell-body">California-licensed. Active in good standing. No pending litigation, bankruptcy, or planned closures.</div>
+      </div>
+      <div class="firm-cell">
+        <div class="firm-cell-label">Core Capabilities</div>
+        <div class="firm-cell-value">Full-Service Practice</div>
+        <div class="firm-cell-body">Placemaking · Tenant Curation · Programming &amp; Events · Brokerage · Design Development · Land Acquisition · Marketing &amp; Branding</div>
+      </div>
+      <div class="firm-cell wide">
+        <div class="firm-cell-label">Mission</div>
+        <div class="firm-cell-value" style="font-size:18px; max-width: 800px;">"A disciplined and studied approach to land development that is both culturally and fiscally productive — enriching lives and creating better places through thoughtful design, development, and tenant curation."</div>
+      </div>
+    </div>
+
+    <!-- Relevant Experience -->
+    <div class="exp-header">Relevant Project Experience</div>
+
+    <!-- LAB Holding Banner -->
+    <div class="lab-banner">
+      <div>
+        <div class="lab-banner-label">Foundational Experience</div>
+        <div class="lab-banner-title">LAB Holding, LLC — Director of Real Estate &amp; Finance</div>
+      </div>
+      <div>
+        <div class="lab-banner-body">Before founding Ground Review, Principal Roman Ciuni served as Director of Real Estate and Finance at LAB Holding, LLC — one of Southern California's most celebrated creators of experiential mixed-use environments. He was responsible for the acquisition, development, leasing, and programming of landmark properties, each of which mirrors the scope of The Hub. programming challenge.</div>
+        <div class="lab-projects">
+          <div class="lab-project-chip">
+            <strong>The LAB Anti-Mall</strong>
+            <span>Costa Mesa, CA · Retail + Community</span>
+          </div>
+          <div class="lab-project-chip">
+            <strong>The Camp</strong>
+            <span>Costa Mesa, CA · Outdoor + Market</span>
+          </div>
+          <div class="lab-project-chip">
+            <strong>Anaheim Packing District</strong>
+            <span>Anaheim, CA · F&amp;B + Events + Placemaking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Items -->
+    <div class="project-item">
+      <div class="project-left">
+        <div class="project-name">City Center Motel</div>
+        <div class="project-location">Long Beach, California</div>
+        <div class="project-tags">
+          <span class="tag">Tenant Curation</span>
+          <span class="tag">F&amp;B</span>
+          <span class="tag">Mixed-Use</span>
+          <span class="tag">Community Destination</span>
+        </div>
+      </div>
+      <div class="project-right">
+        <div class="project-body">Paloma Communities engaged Ground Review to identify a best-in-class restauranteur for the redevelopment of the historic City Center Motel in downtown Long Beach. Ground Review curated and secured Chef Phil Pretty — owner of Heritage LB — to develop a multi-concept culinary destination: <em>OR Bagels</em> (walk-up gourmet deli + coffee) and <em>Olive and Rose</em> (neo-bistro, seasonal tasting menu). Chef Pretty subsequently earned Long Beach's first Michelin star, validating Ground Review's curatorial instincts.</div>
+        <div class="project-relevance">Directly relevant: tenant curation for a mixed-use destination, collaboration with a property owner, and elevating a community corridor through food + culture — identical to The Hub. mandate.</div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-left">
+        <div class="project-name">Smoke &amp; Fire / Villains Brewery</div>
+        <div class="project-location">Anaheim &amp; Long Beach, California</div>
+        <div class="project-tags">
+          <span class="tag">Multi-Location</span>
+          <span class="tag">Brewery + Distillery</span>
+          <span class="tag">Placemaking</span>
+          <span class="tag">Packing District</span>
+        </div>
+      </div>
+      <div class="project-right">
+        <div class="project-body">Ground Review secured three landmark locations for the Smoke &amp; Fire group across Southern California, including the 13,000 sf Villains Brewery campus in the Anaheim Packing District — featuring a brewhouse, shipping container beer garden, swimming pool, and cocktail bar. Each location required complex lease negotiations, placemaking vision, and community activation strategy.</div>
+        <div class="project-relevance">Directly relevant: activating large-format, multi-use outdoor spaces in downtown settings — comparable to The Hub.'s Backyard/patio and event-capable open areas.</div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-left">
+        <div class="project-name">Rye Goods Bakery</div>
+        <div class="project-location">Newport Beach, Laguna Beach &amp; Tustin, CA</div>
+        <div class="project-tags">
+          <span class="tag">Multi-Site Rollout</span>
+          <span class="tag">Site Selection</span>
+          <span class="tag">Design &amp; Execution</span>
+          <span class="tag">OC Markets</span>
+        </div>
+      </div>
+      <div class="project-right">
+        <div class="project-body">Ground Review supported Rye Goods' expansion into three of Orange County's most sought-after locales — Lido Marina Village (Newport Beach), Downtown Laguna Beach, and a central baking facility in Tustin. Services included site identification, design advisory, and full construction and opening process management.</div>
+        <div class="project-relevance">Relevant to GR's ability to manage multiple tenant relationships simultaneously, support vendor logistics, and execute programming across distinct community environments.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ 02 TEAM ═══════════════════════════════════ -->
+<section id="team" style="background: var(--parchment);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-index">Section 02</div>
+        <div class="section-points">25 Points</div>
+      </div>
+      <div>
+        <h2 class="section-title">Qualifications<br>of <em>Personnel</em></h2>
+        <p class="section-intro">A lean, experienced team with deep roots in Southern California's experiential real estate landscape. Each member brings direct, hands-on expertise in the specific disciplines The Hub. requires.</p>
+      </div>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card" data-role="Primary · Project Lead">
+        <div class="team-avatar">RC</div>
+        <div class="team-name">Roman Ciuni</div>
+        <div class="team-title">Finance + Real Estate · Principal</div>
+        <div class="team-bio">Roman leads real estate, financing, business development, and brokerage for Ground Review. With 20+ years in commercial real estate — including CBRE, Marcus &amp; Millichap, NAI Capital, and LAB Holding as Director of Real Estate — he brings unmatched experience in mixed-use project acquisition, development, and community activation. He was directly responsible for the LAB Anti-Mall, Anaheim Packing District, and The Camp.</div>
+        <ul class="team-credentials">
+          <li>B.A. Music Performance, University of Southern California</li>
+          <li>Director of Real Estate &amp; Finance, LAB Holding LLC (2015–)</li>
+          <li>Former broker: CBRE, Marcus &amp; Millichap, NAI Capital</li>
+          <li>Specialist in experiential retail &amp; mixed-use development</li>
+          <li>Irvine, CA (30 min from Corona)</li>
+        </ul>
+        <div class="participation-bar">
+          <div class="participation-label">Participation Level — Primary (Oversight, Strategy, City Liaison)</div>
+          <div class="participation-fill"><div class="participation-fill-inner" style="width:90%"></div></div>
+        </div>
+      </div>
+
+      <div class="team-card" data-role="Primary · Leasing + Curation">
+        <div class="team-avatar">JH</div>
+        <div class="team-name">Jason House</div>
+        <div class="team-title">Leasing + Retail Strategy</div>
+        <div class="team-bio">Jason leads leasing, tenant relations, and experiential retail strategy, bringing a social-cultural lens to project development. He directly leased the LAB Anti-Mall, The Camp, and the Anaheim Packing District. He co-founded Project Potential, a social enterprise in rural India focused on community development — experience that directly informs his approach to inclusive, community-driven programming and vendor curation.</div>
+        <ul class="team-credentials">
+          <li>Finance &amp; Social Business, Wharton School, U. of Pennsylvania</li>
+          <li>Direct leasing lead: LAB Anti-Mall, The Camp, Anaheim Packing District</li>
+          <li>Founder, Project Potential (community enterprise, India)</li>
+          <li>Specializes in social-cultural placemaking + tenant fit</li>
+          <li>Laguna Beach, CA</li>
+        </ul>
+        <div class="participation-bar">
+          <div class="participation-label">Participation Level — Primary (Vendor Curation, Programming, Markets)</div>
+          <div class="participation-fill"><div class="participation-fill-inner" style="width:85%"></div></div>
+        </div>
+      </div>
+
+      <div class="team-card" data-role="Supportive · Client Relations">
+        <div class="team-avatar">SS</div>
+        <div class="team-name">Shane Springer</div>
+        <div class="team-title">Leasing + Client Management</div>
+        <div class="team-bio">Shane manages outreach, client relationships, and vendor coordination for Ground Review. With 10+ years in sales, vendor management, and business development across Southern California, he brings strong negotiation skills and deep knowledge of the regional market. His background in tenant representation for retailers, breweries, and restaurants is directly applicable to vendor management at The Hub.</div>
+        <ul class="team-credentials">
+          <li>B.A. Communications &amp; Sociology, UC Santa Barbara</li>
+          <li>10+ years vendor management &amp; business development</li>
+          <li>Tenant representation: retailers, breweries, restaurants, SoCal</li>
+          <li>Strong local market network across Inland Empire &amp; OC</li>
+          <li>Southern California (local to the region)</li>
+        </ul>
+        <div class="participation-bar">
+          <div class="participation-label">Participation Level — Supportive (Vendor Outreach, Agreements, Logistics)</div>
+          <div class="participation-fill"><div class="participation-fill-inner" style="width:65%"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Org Chart -->
+    <div class="org-chart">
+      <div class="org-chart-title">Team Organization &amp; Reporting Structure</div>
+
+      <div class="org-connector">
+        <div class="org-top">
+          <div class="org-top-name">Roman Ciuni</div>
+          <div class="org-top-role">Principal · Project Manager · City Liaison</div>
+        </div>
+        <div class="org-connector-line"></div>
+      </div>
+
+      <div style="display:flex; justify-content:center; gap:80px; position:relative;">
+        <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:380px; height:1px; background:var(--border);"></div>
+
+        <div class="org-branch">
+          <div class="org-branch-line"></div>
+          <div class="org-node">
+            <div class="org-node-name">Jason House</div>
+            <div class="org-node-role">Leasing + Programming Strategy</div>
+            <div class="org-city-label">Laguna Beach, CA</div>
+          </div>
+        </div>
+
+        <div class="org-branch">
+          <div class="org-branch-line"></div>
+          <div class="org-node">
+            <div class="org-node-name">Shane Springer</div>
+            <div class="org-node-role">Vendor Outreach + Client Relations</div>
+            <div class="org-city-label">Southern California</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; padding-top:32px; border-top:1px solid var(--border); display:flex; justify-content:center; gap:80px;">
+        <div style="text-align:center;">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); margin-bottom:6px;">Firm Location</div>
+          <div style="font-size:13px; color:var(--warm-dark);">17322 Murphy Ave, Irvine CA 92614</div>
+          <div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--light-olive); margin-top:4px;">~30 miles from Corona</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); margin-bottom:6px;">Key Contact</div>
+          <div style="font-size:13px; color:var(--warm-dark);">Roman Ciuni · Principal</div>
+          <div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--light-olive); margin-top:4px;">hello@groundreview.com</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); margin-bottom:6px;">No Sub-Consultants</div>
+          <div style="font-size:13px; color:var(--warm-dark);">All work performed in-house</div>
+          <div style="font-family:'DM Mono',monospace; font-size:9px; color:var(--light-olive); margin-top:4px;">Full team available for duration</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ 03 WORK PLAN ═══════════════════════════════════ -->
+<section id="workplan">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-index">Section 03</div>
+        <div class="section-points">25 Points</div>
+      </div>
+      <div>
+        <h2 class="section-title">Work Plan &amp;<br><em>Approach</em></h2>
+        <p class="section-intro">Ground Review understands The Hub. as more than a venue — it is an urban living room for Downtown Corona. Our approach activates the space with intention: programming that serves residents, drives foot traffic for tenants, and establishes The Hub. as a regional destination.</p>
+      </div>
+    </div>
+
+    <!-- Project Understanding -->
+    <div style="padding: 40px 48px; background: var(--parchment); border: 1px solid var(--border); margin-bottom: 56px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rust); margin-bottom:20px;">Our Understanding of The Hub.</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--warm-dark); margin-bottom:12px;">The Opportunity</div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7);">The Hub. sits at the center of Corona's downtown revitalization story. With the newly adopted Entertainment Zone ordinance, an event-capable outdoor Backyard, multi-tenant F&amp;B space, and proximity to residential neighborhoods — the ingredients for a thriving community hub are in place. What's needed is a disciplined, culturally-attuned operator to bring it to life consistently.</div>
+        </div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--warm-dark); margin-bottom:12px;">Key Challenges We've Identified</div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7);">
+            <strong style="font-weight:500; color:var(--warm-dark);">Consistency:</strong> One-off events don't build destinations — recurring, programmed rhythms do.<br><br>
+            <strong style="font-weight:500; color:var(--warm-dark);">Tenant Symbiosis:</strong> Programming must drive traffic to tenants, not compete with them.<br><br>
+            <strong style="font-weight:500; color:var(--warm-dark);">Diverse Audiences:</strong> Corona's community requires culturally diverse, multi-generational programming — not a one-size-fits-all calendar.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Plan Phases -->
+    <div class="workplan-grid">
+      <div class="workplan-sidebar">
+        <div class="workplan-sidebar-label">Phases of Work</div>
+        <ul class="phase-list">
+          <li class="phase-item">
+            <div class="phase-num">Phase 01</div>
+            <div class="phase-name">Discovery &amp; Immersion</div>
+            <div class="phase-duration">Weeks 1–4</div>
+          </li>
+          <li class="phase-item">
+            <div class="phase-num">Phase 02</div>
+            <div class="phase-name">Programming Architecture</div>
+            <div class="phase-duration">Weeks 3–8</div>
+          </li>
+          <li class="phase-item">
+            <div class="phase-num">Phase 03</div>
+            <div class="phase-name">Vendor &amp; Sponsor Activation</div>
+            <div class="phase-duration">Weeks 6–12</div>
+          </li>
+          <li class="phase-item">
+            <div class="phase-num">Phase 04</div>
+            <div class="phase-name">Launch &amp; Ongoing Operations</div>
+            <div class="phase-duration">Month 3 → Ongoing</div>
+          </li>
+          <li class="phase-item">
+            <div class="phase-num">Phase 05</div>
+            <div class="phase-name">Reporting &amp; Iteration</div>
+            <div class="phase-duration">Quarterly, Ongoing</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="workplan-content">
+
+        <div class="workplan-phase">
+          <div class="phase-header">
+            <div class="phase-badge">01</div>
+            <div>
+              <div class="phase-title">Discovery &amp; Immersion</div>
+              <div class="phase-subtitle">Weeks 1–4 · Roman Ciuni (lead) + Full Team</div>
+            </div>
+          </div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7); margin-bottom:16px;">Before programming, we listen. Ground Review will conduct structured discovery to understand Corona's demographic profile, The Hub.'s existing tenant needs, the surrounding downtown business ecosystem, and community aspirations — informing every subsequent decision.</div>
+          <div class="deliverables">
+            <div class="deliverable"><strong>Community Audit</strong>Demographic &amp; cultural landscape assessment for Downtown Corona</div>
+            <div class="deliverable"><strong>Tenant Interviews</strong>One-on-one sessions with all Hub. tenants to understand traffic patterns &amp; needs</div>
+            <div class="deliverable"><strong>Site Assessment</strong>Backyard capacity mapping, flow analysis, permit landscape review</div>
+            <div class="deliverable"><strong>Competitive Review</strong>Regional event programming analysis — what's missing in the market</div>
+          </div>
+        </div>
+
+        <div class="workplan-phase">
+          <div class="phase-header">
+            <div class="phase-badge">02</div>
+            <div>
+              <div class="phase-title">Programming Architecture</div>
+              <div class="phase-subtitle">Weeks 3–8 · Jason House (lead) + Roman Ciuni</div>
+            </div>
+          </div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7); margin-bottom:16px;">Drawing from discovery findings, we develop a full annual programming calendar — structured around weekly activations, monthly events, and signature seasonal moments. Every event tier is designed to serve a distinct audience while building cumulative destination identity.</div>
+          <div class="deliverables">
+            <div class="deliverable"><strong>Annual Calendar</strong>52-week programming plan: weekly, monthly, seasonal + signature events</div>
+            <div class="deliverable"><strong>Weekly Activations</strong>Live music, DJ nights, trivia, fitness, community mixers — recurring rhythms</div>
+            <div class="deliverable"><strong>Monthly Markets</strong>Artisan, vintage, makers, cultural celebrations, food festivals</div>
+            <div class="deliverable"><strong>Signature Events</strong>Concert series, holiday festivals, art walks, movie nights, farmers market</div>
+          </div>
+        </div>
+
+        <div class="workplan-phase">
+          <div class="phase-header">
+            <div class="phase-badge">03</div>
+            <div>
+              <div class="phase-title">Vendor &amp; Sponsor Activation</div>
+              <div class="phase-subtitle">Weeks 6–12 · Shane Springer (lead) + Jason House</div>
+            </div>
+          </div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7); margin-bottom:16px;">Ground Review's vendor network and sponsorship development capabilities transform programming from cost centers into revenue opportunities. We identify, negotiate, and manage vendor agreements — and develop tiered corporate sponsorship packages aligned to The Hub.'s identity.</div>
+          <div class="deliverables">
+            <div class="deliverable"><strong>Vendor Roster</strong>Curated food truck, pop-up, and artisan vendor network (screened for fit)</div>
+            <div class="deliverable"><strong>Sponsorship Packages</strong>Title, presenting, and supporting sponsor tiers with clear ROI metrics</div>
+            <div class="deliverable"><strong>Farmers Market</strong>Vendor recruitment, agricultural coordination, regulatory compliance</div>
+            <div class="deliverable"><strong>Revenue Model</strong>Ticketing, vendor fees, and sponsorship revenue tracking systems</div>
+          </div>
+        </div>
+
+        <div class="workplan-phase">
+          <div class="phase-header">
+            <div class="phase-badge">04</div>
+            <div>
+              <div class="phase-title">Launch &amp; Ongoing Operations</div>
+              <div class="phase-subtitle">Month 3 → Contract Duration · Full Team</div>
+            </div>
+          </div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7); margin-bottom:16px;">Execution with consistency. Ground Review manages all operational dimensions: permit coordination, event staffing, vendor logistics, security, compliance, social media, marketing collateral, and attendance tracking — so The Hub. runs like a well-programmed machine.</div>
+          <div class="deliverables">
+            <div class="deliverable"><strong>Operations Management</strong>Permit coordination, compliance, staffing, vendor oversight</div>
+            <div class="deliverable"><strong>Marketing Execution</strong>Social media management, digital + print collateral, City co-marketing</div>
+            <div class="deliverable"><strong>Attendance Tracking</strong>Foot traffic metrics, social engagement reporting, tenant impact</div>
+            <div class="deliverable"><strong>City Communication</strong>Monthly reporting, open-book financials, and proactive updates</div>
+          </div>
+        </div>
+
+        <div class="workplan-phase">
+          <div class="phase-header">
+            <div class="phase-badge">05</div>
+            <div>
+              <div class="phase-title">Reporting &amp; Continuous Improvement</div>
+              <div class="phase-subtitle">Quarterly · Roman Ciuni (lead)</div>
+            </div>
+          </div>
+          <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7); margin-bottom:16px;">Ground Review believes in full transparency and data-driven iteration. Quarterly performance reviews against City-established metrics will be presented to the City's Representative — with honest assessment and a forward-looking programming adjustment plan.</div>
+          <div class="deliverables">
+            <div class="deliverable"><strong>Quarterly Reports</strong>Attendance, revenue, sponsorship, social growth, tenant impact analysis</div>
+            <div class="deliverable"><strong>Budget Reconciliation</strong>Detailed cost/revenue accounting against approved budget</div>
+            <div class="deliverable"><strong>Annual Reset</strong>Full programming calendar review + next-year planning with City</div>
+            <div class="deliverable"><strong>Performance Metrics</strong>Aligned to City's Vendor Performance Evaluation Form criteria</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Schedule Table -->
+    <div style="margin-top:56px;">
+      <div class="exp-header">Implementation Schedule</div>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Deliverable</th>
+            <th>Lead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Week 1–2</td>
+            <td>Kickoff meeting with City · Site walkthrough · Tenant interviews begin</td>
+            <td>Roman Ciuni</td>
+          </tr>
+          <tr>
+            <td>Week 3–4</td>
+            <td>Community audit complete · Competitive analysis delivered</td>
+            <td>Full Team</td>
+          </tr>
+          <tr>
+            <td>Week 5–6</td>
+            <td>Draft annual programming calendar submitted to City for review</td>
+            <td>Jason House</td>
+          </tr>
+          <tr>
+            <td>Week 7–8</td>
+            <td>Vendor outreach begins · Sponsorship packages developed</td>
+            <td>Shane Springer</td>
+          </tr>
+          <tr>
+            <td>Week 9–10</td>
+            <td>First event pilot executed · Farmers market vendor recruitment underway</td>
+            <td>Jason House</td>
+          </tr>
+          <tr>
+            <td>Week 11–12</td>
+            <td>Marketing plan + social media launch · Full operational calendar confirmed</td>
+            <td>Full Team</td>
+          </tr>
+          <tr>
+            <td>Month 3+</td>
+            <td>Full weekly programming cadence active · Monthly reporting to City begins</td>
+            <td>Roman Ciuni</td>
+          </tr>
+          <tr>
+            <td>Quarterly</td>
+            <td>Performance review vs. metrics · Programming adjustments</td>
+            <td>Roman Ciuni</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ 04 VALUE ═══════════════════════════════════ -->
+<section id="value" style="background: var(--parchment);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-index">Section 04</div>
+        <div class="section-points">20 Points</div>
+      </div>
+      <div>
+        <h2 class="section-title">Value &amp;<br><em>Compensation</em></h2>
+        <p class="section-intro">Ground Review proposes a hybrid compensation model that aligns our incentives with The Hub.'s success — protecting the City's downside while rewarding performance through shared upside.</p>
+      </div>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-card-label">Option A</div>
+        <div class="comp-card-title">Flat Monthly Management Fee</div>
+        <div class="comp-card-body">A fixed monthly fee covering all programming, operations, marketing, and management services. Provides budget predictability for the City. Best suited if the City prefers full cost certainty throughout the initial term.</div>
+      </div>
+      <div class="comp-card featured">
+        <div class="comp-card-label">Preferred Model</div>
+        <div class="comp-card-title">Hybrid: Base Fee + Revenue Share</div>
+        <div class="comp-card-body">A modest base management fee combined with a percentage of event ticketing, vendor fees, and sponsorship revenue secured. This aligns Ground Review's financial incentives directly with The Hub.'s success — the more we grow, the more we earn. Transparent, performance-driven, and fiscally responsible for the City.</div>
+        <span class="comp-card-badge">Ground Review's Recommendation</span>
+      </div>
+      <div class="comp-card">
+        <div class="comp-card-label">Option C</div>
+        <div class="comp-card-title">Performance-Based Incentive Structure</div>
+        <div class="comp-card-body">Base compensation tied to agreed performance metrics: attendance thresholds, sponsorship dollars secured, event frequency, and tenant sales impact. Milestone-based bonuses upon achievement. Maximum accountability for results.</div>
+      </div>
+    </div>
+
+    <div style="padding:40px 48px; border:1px solid var(--border); background:var(--cream); margin-bottom:48px;">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rust); margin-bottom:20px;">Fee Proposal Note</div>
+      <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7);">Ground Review's detailed Labor Hour Estimate and Fee Proposal — including hourly rate schedule by classification, task-level labor hour breakdown, and total Maximum Not-to-Exceed fee — is submitted as a separate document per RFP Section V.9, uploaded to PlanetBids as the Cost File. All rates include printing, mileage, telephone, mailing, and incidental expenses. No additional charges will be assessed.</div>
+    </div>
+
+    <!-- Performance Metrics -->
+    <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-olive); margin-bottom:4px;">Performance Metrics — How We'll Be Measured</div>
+    <div class="metrics-grid">
+      <div class="metric-cell">
+        <div class="metric-icon">📊</div>
+        <div class="metric-title">Attendance Numbers</div>
+        <div class="metric-desc">Monthly foot traffic tracking by event type, with quarterly trend analysis and year-over-year comparison.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">📅</div>
+        <div class="metric-title">Annual Events</div>
+        <div class="metric-desc">Committed to a minimum number of weekly activations, monthly events, and signature seasonal programming annually.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">💼</div>
+        <div class="metric-title">Sponsorship Revenue</div>
+        <div class="metric-desc">Total corporate and community sponsorship dollars secured, tracked transparently against annual targets.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">🛒</div>
+        <div class="metric-title">Vendor Participation</div>
+        <div class="metric-desc">Number of vendors engaged across markets, pop-ups, and food truck programming — with quality screening maintained.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">📈</div>
+        <div class="metric-title">Tenant Sales Impact</div>
+        <div class="metric-desc">Event-correlated sales lift tracking for Hub. tenants where measurable — collaborative reporting with tenant operators.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">🤝</div>
+        <div class="metric-title">Community Engagement</div>
+        <div class="metric-desc">Qualitative and survey-based community satisfaction metrics, cultural diversity of programming, and neighborhood participation.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">📱</div>
+        <div class="metric-title">Social Media Growth</div>
+        <div class="metric-desc">Monthly follower growth, engagement rate, and reach — tracked across platforms with documented benchmarks.</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-icon">💰</div>
+        <div class="metric-title">Net Revenue Performance</div>
+        <div class="metric-desc">Full financial transparency: gross revenue, expenses, and net performance reported monthly and reconciled quarterly.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ 05 COMMITMENT ═══════════════════════════════════ -->
+<section id="commitment" class="commitment">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-index" style="color:var(--sand);">Section 05</div>
+      </div>
+      <div>
+        <h2 class="section-title">Our <em>Commitment</em><br>to The Hub.</h2>
+        <p class="section-intro">The Hub. is not a contract. It's a community. Ground Review exists precisely to build places like this — and we are committed to making it one of the most vibrant destinations in the Inland Empire.</p>
+      </div>
+    </div>
+
+    <div class="commitment-pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Culturally Grounded Programming</div>
+        <div class="pillar-body">Every event we produce considers Corona's diverse community — multi-generational, multicultural, family-forward. We don't program for demographics. We program for people.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Tenant-First Mentality</div>
+        <div class="pillar-body">The Hub.'s tenants are our partners, not our competition. Every programming decision is made with their success in mind — driving foot traffic, increasing dwell time, and building loyal repeat visitors.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Full Financial Transparency</div>
+        <div class="pillar-body">Open books, monthly. Ground Review believes the City should have complete visibility into every dollar earned and spent. Accountability is not a requirement — it's how we operate.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:80px; padding-top:56px; border-top:1px solid rgba(255,255,255,0.08); display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--cream); line-height:1.3; margin-bottom:16px;">Ready to shape the space<br><em style="color:var(--sand);">in-between.</em></div>
+        <div style="font-size:14px; line-height:1.8; color:rgba(245,240,232,0.55);">Ground Review formally acknowledges receipt of all addenda and confirms this proposal remains valid for 90 days from the submission date. All certifications, insurance requirements, non-collusion declarations, and required forms are submitted as part of this proposal package via PlanetBids.</div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.1); padding:40px;">
+        <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rust); margin-bottom:20px;">Proposal Certification</div>
+        <div style="font-size:13.5px; line-height:1.8; color:rgba(245,240,232,0.6);">
+          <div style="margin-bottom:12px;">✓ &nbsp;All proposal sections complete</div>
+          <div style="margin-bottom:12px;">✓ &nbsp;Non-collusion declaration executed</div>
+          <div style="margin-bottom:12px;">✓ &nbsp;Insurance requirements acknowledged</div>
+          <div style="margin-bottom:12px;">✓ &nbsp;Safety record form submitted</div>
+          <div style="margin-bottom:12px;">✓ &nbsp;Fee proposal submitted separately</div>
+          <div style="margin-bottom:12px;">✓ &nbsp;No negative history to report</div>
+          <div>✓ &nbsp;Proposal valid 90 days from submission</div>
+        </div>
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--light-olive); margin-bottom:6px;">Authorized Signature</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream);">Roman Ciuni</div>
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--sand);">Principal · Ground Review, LLC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer>
+  <div>
+    <div class="footer-brand">Ground Review</div>
+    <div class="footer-tagline">The Art of Shaping the Space In-Between</div>
+  </div>
+  <div>
+    <div class="footer-col-label">Contact</div>
+    <div class="footer-col-content">
+      hello@groundreview.com<br>
+      17322 Murphy Avenue<br>
+      Irvine, CA 92614<br>
+      <a href="https://www.groundreview.com">www.groundreview.com</a>
+    </div>
+  </div>
+  <div>
+    <div class="footer-col-label">RFP Reference</div>
+    <div class="footer-col-content">
+      RFP No. 26-039AS<br>
+      The Hub. Programming &amp; Operating Services<br>
+      City of Corona Economic Development Dept.<br>
+      Submitted: April 14, 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.project-item, .team-card, .workplan-phase, .comp-card, .metric-cell, .pillar').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
