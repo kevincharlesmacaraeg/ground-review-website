@@ -71,6 +71,24 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    background-image: url('images/hub-rotunda.jpg');
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .cover-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(28,26,22,0.90) 35%, rgba(28,26,22,0.45) 70%, rgba(28,26,22,0.2) 100%);
+    z-index: 0;
+  }
+
+  .cover-right-content {
+    position: relative;
+    z-index: 1;
   }
 
   .gr-wordmark {
@@ -238,6 +256,15 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--sand);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-brand img {
+    height: 26px;
+    width: auto;
+    opacity: 0.85;
   }
 
   .nav-links {
@@ -260,7 +287,7 @@
 
   /* ── SECTIONS ── */
   section {
-    padding: 100px 0;
+    padding: 96px 0 100px;
     border-bottom: 1px solid var(--border-light);
   }
 
@@ -412,6 +439,15 @@
   .project-left {
     padding: 36px 40px 36px 0;
     border-right: 1px solid var(--border-light);
+  }
+
+  .project-img {
+    width: calc(100% + 0px);
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 24px;
+    margin-right: 0;
   }
 
   .project-right {
@@ -1193,7 +1229,7 @@
 <div class="cover">
   <div class="cover-grid">
     <div class="cover-left">
-      <div class="gr-wordmark">Ground Review</div>
+      <div class="gr-wordmark"><img src="images/logo-mark-white.svg" alt="Ground Review" style="height:32px;width:auto;opacity:0.7;margin-right:4px;"> Ground Review</div>
 
       <div class="cover-headline">
         <div class="cover-eyebrow" data-config="cover_eyebrow">RFP No. 26-039AS &nbsp;/&nbsp; City of Corona Economic Development</div>
@@ -1242,7 +1278,7 @@
 
 <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
 <nav>
-  <div class="nav-brand">Ground Review &nbsp;/&nbsp; RFP 26-039AS</div>
+  <div class="nav-brand"><img src="images/logo-mark-white.svg" alt="Ground Review"> Ground Review &nbsp;/&nbsp; RFP 26-039AS</div>
   <ul class="nav-links">
     <li><a href="#firm">Firm</a></li>
     <li><a href="#team">Team</a></li>
@@ -1346,6 +1382,7 @@
     <div id="projects-container">
     <div class="project-item">
       <div class="project-left">
+        <img src="images/project-paloma.jpg" alt="City Center Motel" class="project-img">
         <div class="project-name">City Center Motel</div>
         <div class="project-location">Long Beach, California</div>
         <div class="project-tags">
@@ -1363,6 +1400,7 @@
 
     <div class="project-item">
       <div class="project-left">
+        <img src="images/project-or.webp" alt="Smoke & Fire / Villains Brewery" class="project-img">
         <div class="project-name">Smoke &amp; Fire / Villains Brewery</div>
         <div class="project-location">Anaheim &amp; Long Beach, California</div>
         <div class="project-tags">
@@ -1380,6 +1418,7 @@
 
     <div class="project-item">
       <div class="project-left">
+        <img src="images/project-rye.jpg" alt="Rye Goods Bakery" class="project-img">
         <div class="project-name">Rye Goods Bakery</div>
         <div class="project-location">Newport Beach, Laguna Beach &amp; Tustin, CA</div>
         <div class="project-tags">
@@ -1416,7 +1455,7 @@
     <div class="team-grid" id="team-grid">
 
       <div class="team-card" data-role="Primary · Project Lead">
-        <div class="team-avatar">RC</div>
+        <div class="team-avatar"><img src="images/portrait-roman.jpg" alt="Roman Ciuni"></div>
         <div class="team-name">Roman Ciuni</div>
         <div class="team-title">Finance + Real Estate · Principal</div>
         <div class="team-bio">Roman leads real estate, financing, business development, and brokerage for Ground Review. With 20+ years in commercial real estate — including CBRE, Marcus &amp; Millichap, NAI Capital, and LAB Holding as Director of Real Estate — he brings unmatched experience in mixed-use project acquisition, development, and community activation. He was directly responsible for the LAB Anti-Mall, Anaheim Packing District, and The Camp.</div>
@@ -1434,7 +1473,7 @@
       </div>
 
       <div class="team-card" data-role="Primary · Leasing + Curation">
-        <div class="team-avatar">JH</div>
+        <div class="team-avatar"><img src="images/portrait-jason.jpg" alt="Jason House"></div>
         <div class="team-name">Jason House</div>
         <div class="team-title">Leasing + Retail Strategy</div>
         <div class="team-bio">Jason leads leasing, tenant relations, and experiential retail strategy, bringing a social-cultural lens to project development. He directly leased the LAB Anti-Mall, The Camp, and the Anaheim Packing District. He co-founded Project Potential, a social enterprise in rural India focused on community development — experience that directly informs his approach to inclusive, community-driven programming and vendor curation.</div>
@@ -1849,6 +1888,7 @@
         </div>
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
           <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--light-olive); margin-bottom:6px;">Authorized Signature</div>
+          <img src="images/signature-roman.png" alt="Roman Ciuni signature" style="height:52px;width:auto;display:block;margin-bottom:4px;filter:invert(1) brightness(1.8) opacity(0.85);">
           <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream);" data-config="signature_name">Roman Ciuni</div>
           <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--sand);" data-config="signature_title">Principal · Ground Review, LLC</div>
         </div>
@@ -1980,6 +2020,7 @@ function renderProjects(rows) {
     return `
     <div class="project-item">
       <div class="project-left">
+        ${r.image ? `<img src="${r.image}" alt="${r.name}" class="project-img">` : ''}
         <div class="project-name">${r.name}</div>
         <div class="project-location">${r.location}</div>
         <div class="project-tags">${tags}</div>
@@ -1999,9 +2040,10 @@ function renderTeam(rows) {
   el.innerHTML = rows.map(r => {
     const creds = [r.cred1, r.cred2, r.cred3, r.cred4, r.cred5]
       .filter(Boolean).map(c => `<li>${c}</li>`).join('');
+    const avatarContent = r.image ? `<img src="${r.image}" alt="${r.name}">` : r.initials;
     return `
     <div class="team-card" data-role="${r.role_tag}">
-      <div class="team-avatar">${r.initials}</div>
+      <div class="team-avatar">${avatarContent}</div>
       <div class="team-name">${r.name}</div>
       <div class="team-title">${r.title}</div>
       <div class="team-bio">${r.bio}</div>
