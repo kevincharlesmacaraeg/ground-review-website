@@ -535,7 +535,7 @@
   /* ── TEAM ── */
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2px;
     background: var(--border);
   }
@@ -1196,34 +1196,34 @@
       <div class="gr-wordmark">Ground Review</div>
 
       <div class="cover-headline">
-        <div class="cover-eyebrow">RFP No. 26-039AS &nbsp;/&nbsp; City of Corona Economic Development</div>
+        <div class="cover-eyebrow" data-config="cover_eyebrow">RFP No. 26-039AS &nbsp;/&nbsp; City of Corona Economic Development</div>
         <div class="cover-title">The <em>Hub.</em></div>
-        <div class="cover-sub">Programming &amp; Operating Services</div>
+        <div class="cover-sub" data-config="cover_sub">Programming &amp; Operating Services</div>
       </div>
 
       <div class="cover-meta">
         <div class="meta-item">
           <div class="meta-label">Submitted By</div>
-          <div class="meta-value">Ground Review, LLC<br>Irvine, CA 92614</div>
+          <div class="meta-value" data-config="submitted_by">Ground Review, LLC<br>Irvine, CA 92614</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Submitted To</div>
-          <div class="meta-value">City of Corona<br>Economic Development Dept.</div>
+          <div class="meta-value" data-config="submitted_to">City of Corona<br>Economic Development Dept.</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Proposal Date</div>
-          <div class="meta-value">April 14, 2026</div>
+          <div class="meta-value" data-config="proposal_date">April 14, 2026</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Contact</div>
-          <div class="meta-value">hello@groundreview.com<br>17322 Murphy Ave, Irvine CA</div>
+          <div class="meta-value" data-config="contact">hello@groundreview.com<br>17322 Murphy Ave, Irvine CA</div>
         </div>
       </div>
     </div>
 
     <div class="cover-right">
       <div class="cover-right-content">
-        <div class="cover-statement">
+        <div class="cover-statement" data-config="cover_statement">
           "The art of shaping the space in-between — where community, culture, and commerce converge."
         </div>
 
@@ -1262,12 +1262,12 @@
       </div>
       <div>
         <h2 class="section-title">Qualification<br>of <em>Firm</em></h2>
-        <p class="section-intro">Ground Review is a California-licensed real estate brokerage, design, and development practice with a singular focus: creating mixed-use environments where community, culture, and commerce thrive together.</p>
+        <p class="section-intro" data-config="firm_intro">Ground Review is a California-licensed real estate brokerage, design, and development practice with a singular focus: creating mixed-use environments where community, culture, and commerce thrive together.</p>
       </div>
     </div>
 
     <!-- Stats Strip -->
-    <div class="highlight-strip">
+    <div class="highlight-strip" id="stats-strip">
       <div class="highlight-item">
         <div class="highlight-num">20+</div>
         <div class="highlight-label">Years Combined<br>Real Estate Leadership</div>
@@ -1287,7 +1287,7 @@
     </div>
 
     <!-- Firm Overview Grid -->
-    <div class="firm-grid">
+    <div class="firm-grid" id="firm-grid">
       <div class="firm-cell">
         <div class="firm-cell-label">Firm Name</div>
         <div class="firm-cell-value">Ground Review, LLC</div>
@@ -1321,10 +1321,10 @@
     <div class="lab-banner">
       <div>
         <div class="lab-banner-label">Foundational Experience</div>
-        <div class="lab-banner-title">LAB Holding, LLC — Director of Real Estate &amp; Finance</div>
+        <div class="lab-banner-title" data-config="lab_title">LAB Holding, LLC — Director of Real Estate &amp; Finance</div>
       </div>
       <div>
-        <div class="lab-banner-body">Before founding Ground Review, Principal Roman Ciuni served as Director of Real Estate and Finance at LAB Holding, LLC — one of Southern California's most celebrated creators of experiential mixed-use environments. He was responsible for the acquisition, development, leasing, and programming of landmark properties, each of which mirrors the scope of The Hub. programming challenge.</div>
+        <div class="lab-banner-body" data-config="lab_body">Before founding Ground Review, Principal Roman Ciuni served as Director of Real Estate and Finance at LAB Holding, LLC — one of Southern California's most celebrated creators of experiential mixed-use environments. He was responsible for the acquisition, development, leasing, and programming of landmark properties, each of which mirrors the scope of The Hub. programming challenge.</div>
         <div class="lab-projects">
           <div class="lab-project-chip">
             <strong>The LAB Anti-Mall</strong>
@@ -1343,6 +1343,7 @@
     </div>
 
     <!-- Project Items -->
+    <div id="projects-container">
     <div class="project-item">
       <div class="project-left">
         <div class="project-name">City Center Motel</div>
@@ -1393,6 +1394,7 @@
         <div class="project-relevance">Relevant to GR's ability to manage multiple tenant relationships simultaneously, support vendor logistics, and execute programming across distinct community environments.</div>
       </div>
     </div>
+    </div><!-- /projects-container -->
 
   </div>
 </section>
@@ -1407,11 +1409,11 @@
       </div>
       <div>
         <h2 class="section-title">Qualifications<br>of <em>Personnel</em></h2>
-        <p class="section-intro">A lean, experienced team with deep roots in Southern California's experiential real estate landscape. Each member brings direct, hands-on expertise in the specific disciplines The Hub. requires.</p>
+        <p class="section-intro" data-config="team_intro">A lean, experienced team with deep roots in Southern California's experiential real estate landscape. Each member brings direct, hands-on expertise in the specific disciplines The Hub. requires.</p>
       </div>
     </div>
 
-    <div class="team-grid">
+    <div class="team-grid" id="team-grid">
 
       <div class="team-card" data-role="Primary · Project Lead">
         <div class="team-avatar">RC</div>
@@ -1449,23 +1451,6 @@
         </div>
       </div>
 
-      <div class="team-card" data-role="Supportive · Client Relations">
-        <div class="team-avatar">SS</div>
-        <div class="team-name">Shane Springer</div>
-        <div class="team-title">Leasing + Client Management</div>
-        <div class="team-bio">Shane manages outreach, client relationships, and vendor coordination for Ground Review. With 10+ years in sales, vendor management, and business development across Southern California, he brings strong negotiation skills and deep knowledge of the regional market. His background in tenant representation for retailers, breweries, and restaurants is directly applicable to vendor management at The Hub.</div>
-        <ul class="team-credentials">
-          <li>B.A. Communications &amp; Sociology, UC Santa Barbara</li>
-          <li>10+ years vendor management &amp; business development</li>
-          <li>Tenant representation: retailers, breweries, restaurants, SoCal</li>
-          <li>Strong local market network across Inland Empire &amp; OC</li>
-          <li>Southern California (local to the region)</li>
-        </ul>
-        <div class="participation-bar">
-          <div class="participation-label">Participation Level — Supportive (Vendor Outreach, Agreements, Logistics)</div>
-          <div class="participation-fill"><div class="participation-fill-inner" style="width:65%"></div></div>
-        </div>
-      </div>
 
     </div>
 
@@ -1481,24 +1466,13 @@
         <div class="org-connector-line"></div>
       </div>
 
-      <div style="display:flex; justify-content:center; gap:80px; position:relative;">
-        <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:380px; height:1px; background:var(--border);"></div>
-
+      <div style="display:flex; justify-content:center;">
         <div class="org-branch">
           <div class="org-branch-line"></div>
           <div class="org-node">
             <div class="org-node-name">Jason House</div>
             <div class="org-node-role">Leasing + Programming Strategy</div>
             <div class="org-city-label">Laguna Beach, CA</div>
-          </div>
-        </div>
-
-        <div class="org-branch">
-          <div class="org-branch-line"></div>
-          <div class="org-node">
-            <div class="org-node-name">Shane Springer</div>
-            <div class="org-node-role">Vendor Outreach + Client Relations</div>
-            <div class="org-city-label">Southern California</div>
           </div>
         </div>
       </div>
@@ -1535,7 +1509,7 @@
       </div>
       <div>
         <h2 class="section-title">Work Plan &amp;<br><em>Approach</em></h2>
-        <p class="section-intro">Ground Review understands The Hub. as more than a venue — it is an urban living room for Downtown Corona. Our approach activates the space with intention: programming that serves residents, drives foot traffic for tenants, and establishes The Hub. as a regional destination.</p>
+        <p class="section-intro" data-config="workplan_intro">Ground Review understands The Hub. as more than a venue — it is an urban living room for Downtown Corona. Our approach activates the space with intention: programming that serves residents, drives foot traffic for tenants, and establishes The Hub. as a regional destination.</p>
       </div>
     </div>
 
@@ -1562,7 +1536,7 @@
     <div class="workplan-grid">
       <div class="workplan-sidebar">
         <div class="workplan-sidebar-label">Phases of Work</div>
-        <ul class="phase-list">
+        <ul class="phase-list" id="phase-list">
           <li class="phase-item">
             <div class="phase-num">Phase 01</div>
             <div class="phase-name">Discovery &amp; Immersion</div>
@@ -1591,7 +1565,7 @@
         </ul>
       </div>
 
-      <div class="workplan-content">
+      <div class="workplan-content" id="workplan-content">
 
         <div class="workplan-phase">
           <div class="phase-header">
@@ -1632,7 +1606,7 @@
             <div class="phase-badge">03</div>
             <div>
               <div class="phase-title">Vendor &amp; Sponsor Activation</div>
-              <div class="phase-subtitle">Weeks 6–12 · Shane Springer (lead) + Jason House</div>
+              <div class="phase-subtitle">Weeks 6–12 · Jason House (lead)</div>
             </div>
           </div>
           <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7); margin-bottom:16px;">Ground Review's vendor network and sponsorship development capabilities transform programming from cost centers into revenue opportunities. We identify, negotiate, and manage vendor agreements — and develop tiered corporate sponsorship packages aligned to The Hub.'s identity.</div>
@@ -1692,7 +1666,7 @@
             <th>Lead</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="timeline-tbody">
           <tr>
             <td>Week 1–2</td>
             <td>Kickoff meeting with City · Site walkthrough · Tenant interviews begin</td>
@@ -1711,7 +1685,7 @@
           <tr>
             <td>Week 7–8</td>
             <td>Vendor outreach begins · Sponsorship packages developed</td>
-            <td>Shane Springer</td>
+            <td>Jason House</td>
           </tr>
           <tr>
             <td>Week 9–10</td>
@@ -1750,7 +1724,7 @@
       </div>
       <div>
         <h2 class="section-title">Value &amp;<br><em>Compensation</em></h2>
-        <p class="section-intro">Ground Review proposes a hybrid compensation model that aligns our incentives with The Hub.'s success — protecting the City's downside while rewarding performance through shared upside.</p>
+        <p class="section-intro" data-config="value_intro">Ground Review proposes a hybrid compensation model that aligns our incentives with The Hub.'s success — protecting the City's downside while rewarding performance through shared upside.</p>
       </div>
     </div>
 
@@ -1775,12 +1749,12 @@
 
     <div style="padding:40px 48px; border:1px solid var(--border); background:var(--cream); margin-bottom:48px;">
       <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rust); margin-bottom:20px;">Fee Proposal Note</div>
-      <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7);">Ground Review's detailed Labor Hour Estimate and Fee Proposal — including hourly rate schedule by classification, task-level labor hour breakdown, and total Maximum Not-to-Exceed fee — is submitted as a separate document per RFP Section V.9, uploaded to PlanetBids as the Cost File. All rates include printing, mileage, telephone, mailing, and incidental expenses. No additional charges will be assessed.</div>
+      <div style="font-size:14px; line-height:1.8; color:rgba(28,26,22,0.7);" data-config="fee_note">Ground Review's detailed Labor Hour Estimate and Fee Proposal — including hourly rate schedule by classification, task-level labor hour breakdown, and total Maximum Not-to-Exceed fee — is submitted as a separate document per RFP Section V.9, uploaded to PlanetBids as the Cost File. All rates include printing, mileage, telephone, mailing, and incidental expenses. No additional charges will be assessed.</div>
     </div>
 
     <!-- Performance Metrics -->
     <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-olive); margin-bottom:4px;">Performance Metrics — How We'll Be Measured</div>
-    <div class="metrics-grid">
+    <div class="metrics-grid" id="metrics-grid">
       <div class="metric-cell">
         <div class="metric-icon">📊</div>
         <div class="metric-title">Attendance Numbers</div>
@@ -1835,11 +1809,11 @@
       </div>
       <div>
         <h2 class="section-title">Our <em>Commitment</em><br>to The Hub.</h2>
-        <p class="section-intro">The Hub. is not a contract. It's a community. Ground Review exists precisely to build places like this — and we are committed to making it one of the most vibrant destinations in the Inland Empire.</p>
+        <p class="section-intro" data-config="commitment_intro">The Hub. is not a contract. It's a community. Ground Review exists precisely to build places like this — and we are committed to making it one of the most vibrant destinations in the Inland Empire.</p>
       </div>
     </div>
 
-    <div class="commitment-pillars">
+    <div class="commitment-pillars" id="commitment-pillars">
       <div class="pillar">
         <div class="pillar-num">01</div>
         <div class="pillar-title">Culturally Grounded Programming</div>
@@ -1859,8 +1833,8 @@
 
     <div style="margin-top:80px; padding-top:56px; border-top:1px solid rgba(255,255,255,0.08); display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
       <div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--cream); line-height:1.3; margin-bottom:16px;">Ready to shape the space<br><em style="color:var(--sand);">in-between.</em></div>
-        <div style="font-size:14px; line-height:1.8; color:rgba(245,240,232,0.55);">Ground Review formally acknowledges receipt of all addenda and confirms this proposal remains valid for 90 days from the submission date. All certifications, insurance requirements, non-collusion declarations, and required forms are submitted as part of this proposal package via PlanetBids.</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--cream); line-height:1.3; margin-bottom:16px;" data-config="closing_headline">Ready to shape the space<br><em style="color:var(--sand);">in-between.</em></div>
+        <div style="font-size:14px; line-height:1.8; color:rgba(245,240,232,0.55);" data-config="closing_body">Ground Review formally acknowledges receipt of all addenda and confirms this proposal remains valid for 90 days from the submission date. All certifications, insurance requirements, non-collusion declarations, and required forms are submitted as part of this proposal package via PlanetBids.</div>
       </div>
       <div style="border:1px solid rgba(255,255,255,0.1); padding:40px;">
         <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rust); margin-bottom:20px;">Proposal Certification</div>
@@ -1875,8 +1849,8 @@
         </div>
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
           <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--light-olive); margin-bottom:6px;">Authorized Signature</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream);">Roman Ciuni</div>
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--sand);">Principal · Ground Review, LLC</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream);" data-config="signature_name">Roman Ciuni</div>
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--sand);" data-config="signature_title">Principal · Ground Review, LLC</div>
         </div>
       </div>
     </div>
@@ -1887,11 +1861,11 @@
 <footer>
   <div>
     <div class="footer-brand">Ground Review</div>
-    <div class="footer-tagline">The Art of Shaping the Space In-Between</div>
+    <div class="footer-tagline" data-config="footer_tagline">The Art of Shaping the Space In-Between</div>
   </div>
   <div>
     <div class="footer-col-label">Contact</div>
-    <div class="footer-col-content">
+    <div class="footer-col-content" data-config="footer_contact">
       hello@groundreview.com<br>
       17322 Murphy Avenue<br>
       Irvine, CA 92614<br>
@@ -1910,22 +1884,247 @@
 </footer>
 
 <script>
-  // Smooth fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
+// ─────────────────────────────────────────────────────────────
+//  GOOGLE SHEETS INTEGRATION
+//  1. Make a copy of the template sheet shared with you
+//  2. File → Share → "Anyone with link can view"
+//  3. Copy the Sheet ID from the URL and paste it below
+// ─────────────────────────────────────────────────────────────
+const SHEET_ID = 'YOUR_SHEET_ID_HERE';
 
-  document.querySelectorAll('.project-item, .team-card, .workplan-phase, .comp-card, .metric-cell, .pillar').forEach(el => {
+// Scroll-fade observer (used by render functions too)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.project-item, .team-card, .workplan-phase, .comp-card, .metric-cell, .pillar').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// ── Sheets helpers ────────────────────────────────────────────
+
+async function fetchSheet(tabName) {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(tabName)}&t=${Date.now()}`;
+  const res = await fetch(url);
+  const text = await res.text();
+  const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);/);
+  if (!match) throw new Error(`Could not parse sheet: ${tabName}`);
+  const json = JSON.parse(match[1]);
+  const { cols, rows } = json.table;
+  const headers = cols.map(c => (c.label || c.id || '').trim());
+  return rows
+    .map(row => {
+      const obj = {};
+      row.c.forEach((cell, i) => {
+        obj[headers[i]] = (cell && cell.v != null) ? String(cell.v).trim() : '';
+      });
+      return obj;
+    })
+    .filter(row => Object.values(row).some(v => v !== ''));
+}
+
+function observe(container, selector) {
+  container.querySelectorAll(selector).forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(16px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
+}
+
+// ── Render functions ──────────────────────────────────────────
+
+function applyConfig(rows) {
+  const cfg = Object.fromEntries(rows.map(r => [r.key, r.value]));
+  document.querySelectorAll('[data-config]').forEach(el => {
+    const val = cfg[el.dataset.config];
+    if (val !== undefined && val !== '') el.innerHTML = val.replace(/\\n/g, '<br>');
+  });
+}
+
+function renderStats(rows) {
+  const el = document.getElementById('stats-strip');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => `
+    <div class="highlight-item">
+      <div class="highlight-num">${r.value}</div>
+      <div class="highlight-label">${r.label.replace(/\\n/g, '<br>')}</div>
+    </div>`).join('');
+}
+
+function renderFirmGrid(rows) {
+  const el = document.getElementById('firm-grid');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => `
+    <div class="firm-cell${r.wide === 'TRUE' || r.wide === 'true' ? ' wide' : ''}">
+      <div class="firm-cell-label">${r.label}</div>
+      <div class="firm-cell-value"${r.wide === 'TRUE' || r.wide === 'true' ? ' style="font-size:18px;max-width:800px;"' : ''}>${r.value}</div>
+      ${r.body ? `<div class="firm-cell-body">${r.body.replace(/\\n/g, '<br>')}</div>` : ''}
+    </div>`).join('');
+}
+
+function renderProjects(rows) {
+  const el = document.getElementById('projects-container');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => {
+    const tags = [r.tag1, r.tag2, r.tag3, r.tag4]
+      .filter(Boolean).map(t => `<span class="tag">${t}</span>`).join('');
+    return `
+    <div class="project-item">
+      <div class="project-left">
+        <div class="project-name">${r.name}</div>
+        <div class="project-location">${r.location}</div>
+        <div class="project-tags">${tags}</div>
+      </div>
+      <div class="project-right">
+        <div class="project-body">${r.body}</div>
+        ${r.relevance ? `<div class="project-relevance">${r.relevance}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+  observe(el, '.project-item');
+}
+
+function renderTeam(rows) {
+  const el = document.getElementById('team-grid');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => {
+    const creds = [r.cred1, r.cred2, r.cred3, r.cred4, r.cred5]
+      .filter(Boolean).map(c => `<li>${c}</li>`).join('');
+    return `
+    <div class="team-card" data-role="${r.role_tag}">
+      <div class="team-avatar">${r.initials}</div>
+      <div class="team-name">${r.name}</div>
+      <div class="team-title">${r.title}</div>
+      <div class="team-bio">${r.bio}</div>
+      ${creds ? `<ul class="team-credentials">${creds}</ul>` : ''}
+      <div class="participation-bar">
+        <div class="participation-label">${r.participation_label}</div>
+        <div class="participation-fill">
+          <div class="participation-fill-inner" style="width:${r.participation_pct}%"></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  observe(el, '.team-card');
+}
+
+function renderWorkplan(rows) {
+  const sidebar = document.getElementById('phase-list');
+  const content = document.getElementById('workplan-content');
+  if (!rows.length) return;
+
+  if (sidebar) {
+    sidebar.innerHTML = rows.map(r => `
+      <li class="phase-item">
+        <div class="phase-num">Phase ${r.num}</div>
+        <div class="phase-name">${r.title}</div>
+        <div class="phase-duration">${r.duration}</div>
+      </li>`).join('');
+  }
+
+  if (content) {
+    content.innerHTML = rows.map(r => {
+      const deliverables = [
+        [r.d1_title, r.d1_desc], [r.d2_title, r.d2_desc],
+        [r.d3_title, r.d3_desc], [r.d4_title, r.d4_desc],
+      ].filter(([t]) => t)
+       .map(([t, d]) => `<div class="deliverable"><strong>${t}</strong>${d}</div>`).join('');
+      return `
+      <div class="workplan-phase">
+        <div class="phase-header">
+          <div class="phase-badge">${r.num}</div>
+          <div>
+            <div class="phase-title">${r.title}</div>
+            <div class="phase-subtitle">${r.subtitle}</div>
+          </div>
+        </div>
+        <div style="font-size:14px;line-height:1.8;color:rgba(28,26,22,0.7);margin-bottom:16px;">${r.description}</div>
+        ${deliverables ? `<div class="deliverables">${deliverables}</div>` : ''}
+      </div>`;
+    }).join('');
+    observe(content, '.workplan-phase');
+  }
+}
+
+function renderTimeline(rows) {
+  const el = document.getElementById('timeline-tbody');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.milestone}</td>
+      <td>${r.deliverable}</td>
+      <td>${r.lead}</td>
+    </tr>`).join('');
+}
+
+function renderMetrics(rows) {
+  const el = document.getElementById('metrics-grid');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => `
+    <div class="metric-cell">
+      <div class="metric-icon">${r.icon}</div>
+      <div class="metric-title">${r.title}</div>
+      <div class="metric-desc">${r.description}</div>
+    </div>`).join('');
+  observe(el, '.metric-cell');
+}
+
+function renderPillars(rows) {
+  const el = document.getElementById('commitment-pillars');
+  if (!el || !rows.length) return;
+  el.innerHTML = rows.map(r => `
+    <div class="pillar">
+      <div class="pillar-num">${r.num}</div>
+      <div class="pillar-title">${r.title}</div>
+      <div class="pillar-body">${r.body}</div>
+    </div>`).join('');
+  observe(el, '.pillar');
+}
+
+// ── Init ──────────────────────────────────────────────────────
+
+async function init() {
+  if (!SHEET_ID || SHEET_ID === 'YOUR_SHEET_ID_HERE') return;
+
+  try {
+    const [config, stats, firm, projects, team, workplan, timeline, metrics, pillars] =
+      await Promise.all([
+        fetchSheet('config'),
+        fetchSheet('stats'),
+        fetchSheet('firm'),
+        fetchSheet('projects'),
+        fetchSheet('team'),
+        fetchSheet('workplan'),
+        fetchSheet('timeline'),
+        fetchSheet('metrics'),
+        fetchSheet('pillars'),
+      ]);
+
+    applyConfig(config);
+    renderStats(stats);
+    renderFirmGrid(firm);
+    renderProjects(projects);
+    renderTeam(team);
+    renderWorkplan(workplan);
+    renderTimeline(timeline);
+    renderMetrics(metrics);
+    renderPillars(pillars);
+
+  } catch (e) {
+    console.warn('Sheets not configured or unavailable — static content shown.', e);
+  }
+}
+
+init();
 </script>
 
 </body>
